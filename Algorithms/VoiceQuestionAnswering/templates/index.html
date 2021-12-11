@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello Voice Question Answering Page </title>
+	</head>
+	<body>
+
+		<p>Introduction page</p>
+		<script>
+			function startDictation() {
+				document.getElementById('transcript').value = '';
+				document.getElementById('output').value = '';
+				if(window.hasOwnProperty('webkitSpeechRecognition')) {
+					var recognition = new webkitSpeechRecognition();
+					recognition.continuous = false;
+					recognition.interimResults = false;
+					recognition.lang = "en-US";
+					recognition.start();
+					recognition.onresult = function(e) {
+						document.getElementById('loader').hidden = false;
+						
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>
